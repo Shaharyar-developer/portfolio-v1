@@ -31,7 +31,11 @@ export const Header = () => {
             className=""
             words={[
               { text: "Fullstack" },
-              { text: "Developer", className: "text-blue-500" },
+              {
+                text: "Developer",
+                className:
+                  "bg-clip-text text-transparent bg-gradient-to-br from-sky-300 to-blue-300",
+              },
             ]}
           />
         </div>
