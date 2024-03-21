@@ -23,7 +23,7 @@ export default function Home() {
         <TechStack />
         <Skills />
       </div>
-      <p className="text-center mt-4 text-xs text-zinc-700">
+      <p className="text-center mt-4 pb-4 text-xs text-zinc-700">
         TIP: Hover OR Tap Any Dot To Make It Bigger
       </p>
     </main>
