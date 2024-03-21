@@ -17,6 +17,11 @@ export const Header = () => {
               animate={{
                 width: ["0%", "100%"],
               }}
+              transition={{
+                duration: 1.5,
+                ease: "anticipate",
+                delay: 1,
+              }}
               className="h-[1px] w-[0%] absolute bottom-0 left-0 bg-gradient-to-r from-indigo-300 via-sky-300 to-emerald-300"
             />
           </h1>
