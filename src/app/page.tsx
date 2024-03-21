@@ -6,9 +6,9 @@ import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 
 export default function Home() {
   return (
-    <main className="m-12">
+    <main className="">
       <Header />
-      <div className=" mt-16">
+      <div className="m-12 mt-16">
         <h2 className=" text-center text-xl font-semibold text-clip bg-clip-text text-transparent bg-gradient-to-br from-zinc-500 to-white">
           About Me
         </h2>
@@ -16,10 +16,10 @@ export default function Home() {
           words={
             "Hello, I'm a Web Developer. I create the Interface you see and the backend that powers it. I'm passionate about creating beautiful and functional websites. I'm also a fan of open source and love to contribute to the community."
           }
-          className="md:max-w-[45%] max-w-[90%] mx-auto font-medium "
+          className="md:max-w-[45%] max-w-[95%] mx-auto font-medium "
         />
       </div>
-      <div className="mt-20 flex justify-center gap-24">
+      <div className="mt-20 flex flex-col md:flex-row justify-center gap-4 md:gap-24">
         <TechStack />
         <Skills />
       </div>
