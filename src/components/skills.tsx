@@ -110,11 +110,20 @@ export const Skills = () => {
                   : 100,
               height: tappedIndex === index ? 50 : 24,
               width: tappedIndex === index ? 150 : 24,
+              opacity: 1,
+              x: 0,
             }}
+            initial={{ opacity: 0, x: 30 }}
             transition={{
               type: "spring",
               stiffness: 240,
               velocity: 2,
+              opacity: {
+                delay: index / 13,
+              },
+              x: {
+                delay: index / 15,
+              },
             }}
             key={index}
           >

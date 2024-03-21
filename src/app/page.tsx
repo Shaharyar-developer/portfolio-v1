@@ -24,7 +24,7 @@ export default function Home() {
         <Skills />
       </div>
       <p className="text-center mt-4 pb-4 text-xs text-zinc-700">
-        TIP: Hover OR Tap Any Dot To Make It Bigger
+        TIP: Hover OR Tap Any Colored Dot To Make It Bigger
       </p>
     </main>
   );

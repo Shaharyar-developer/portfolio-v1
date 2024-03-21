@@ -70,6 +70,7 @@ export const TechStack = () => {
       <motion.div
         layout
         className="size-56 border rounded-xl p-1 mx-auto mt-2 grid grid-cols-5 grid-rows-5 gap-2 place-items-center"
+        transition={{}}
       >
         {gridItems.map((_, index) => (
           <motion.div
@@ -113,11 +114,23 @@ export const TechStack = () => {
               borderRadius: activeIndexes.includes(index) ? 100 : 3,
               height: tappedIndex === index ? 50 : 24,
               width: tappedIndex === index ? 150 : 24,
+              opacity: 1,
+              x: 0,
+            }}
+            initial={{
+              opacity: 0,
+              x: -30,
             }}
             transition={{
               type: "spring",
               stiffness: 240,
               velocity: 2,
+              opacity: {
+                delay: index / 13,
+              },
+              x: {
+                delay: index / 15,
+              },
             }}
             key={index}
           >
