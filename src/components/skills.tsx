@@ -2,17 +2,26 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-export const TechStack = () => {
+export const Skills = () => {
   const [activeIndexes, setActiveIndexes] = useState<number[]>([]);
   const [hoveredIndex, setHovered] = useState<number | null>(null);
   const [tappedIndex, setTappedIndex] = useState<number | null>(null);
   const [activeColors, setActiveColors] = useState<string[]>([]);
-  const [techStackNames, setTechStackNames] = useState<string[]>([]);
-
+  const [skillsNames, setskillsNames] = useState<string[]>([]);
+  const skills = [
+    "Git",
+    "GitHub",
+    "Linux",
+    "Docker",
+    "Kubernetes",
+    "AWS",
+    "ORMs",
+    "REST",
+  ];
   const gridItems = Array(25).fill(null);
   const generateRandomNumbers = () => {
     const randomNumbers = new Set<number>();
-    while (randomNumbers.size < 9) {
+    while (randomNumbers.size < skills.length) {
       const randomNumber = Math.floor(Math.random() * 25) + 1;
       randomNumbers.add(randomNumber);
     }
@@ -27,7 +36,7 @@ export const TechStack = () => {
     return array;
   };
 
-  const shuffleTechStackNames = (array: string[]) => {
+  const shuffleskillsNames = (array: string[]) => {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
@@ -46,25 +55,13 @@ export const TechStack = () => {
 
     setActiveIndexes(newActiveIndexes);
     setActiveColors(newActiveIndexes.map((_, i) => colors[i % colors.length]));
-    setTechStackNames(
-      shuffleTechStackNames([
-        "React",
-        "Node.js",
-        "Postgresql",
-        "Express",
-        "Hono",
-        "Next.js",
-        "TailwindCSS",
-        "TypeScript",
-        "TRPC",
-      ])
-    );
+    setskillsNames(shuffleskillsNames(skills));
   }, []);
 
   return (
     <div>
       <h2 className=" text-center text-xl font-semibold text-clip bg-clip-text text-transparent bg-gradient-to-br from-zinc-500 to-white">
-        Tech Stack
+        Skills
       </h2>
 
       <motion.div
@@ -73,7 +70,7 @@ export const TechStack = () => {
       >
         {gridItems.map((_, index) => (
           <motion.div
-            className={`w-6 z-1 aspect-square bg-accent  ${
+            className={`w-6 z-1 aspect-square  bg-accent  ${
               activeIndexes.includes(index)
                 ? activeColors[activeIndexes.indexOf(index)]
                 : ""
@@ -98,11 +95,6 @@ export const TechStack = () => {
               width: activeIndexes.includes(index) ? 150 : 24,
               zIndex: 10,
             }}
-            whileFocus={{
-              height: activeIndexes.includes(index) ? 50 : 24,
-              width: activeIndexes.includes(index) ? 150 : 24,
-              zIndex: 10,
-            }}
             animate={{
               zIndex:
                 tappedIndex === index
@@ -110,7 +102,12 @@ export const TechStack = () => {
                   : activeIndexes.includes(index)
                   ? 4
                   : 1,
-              borderRadius: activeIndexes.includes(index) ? 100 : 3,
+              borderRadius:
+                tappedIndex === index
+                  ? 20
+                  : activeIndexes.includes(index)
+                  ? 3
+                  : 100,
               height: tappedIndex === index ? 50 : 24,
               width: tappedIndex === index ? 150 : 24,
             }}
@@ -127,10 +124,9 @@ export const TechStack = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.2 }}
-                whileFocus={{ opacity: 1 }}
                 className="text-white flex justify-center items-center h-full"
               >
-                {techStackNames[activeIndexes.indexOf(index)]}
+                {skillsNames[activeIndexes.indexOf(index)]}
               </motion.p>
             )}
           </motion.div>
