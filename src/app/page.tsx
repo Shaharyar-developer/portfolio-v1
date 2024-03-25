@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main className="">
       <Header />
-      <div className="m-8 md:m-12 mt-16">
+      <div className="m-8 md:m-12 mt-8">
         <h2 className=" text-center text-xl font-semibold text-clip bg-clip-text text-transparent bg-gradient-to-br from-zinc-500 to-white">
           About Me
         </h2>

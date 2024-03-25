@@ -8,9 +8,9 @@ import { Button } from "./ui/button";
 
 export const Header = () => {
   return (
-    <div className="justify-center m-4 md:m-8 md:mx-12  border-2 border-dashed p-2 px-8 rounded-2xl">
-      <div className=" md:flex justify-between items-center gap-12 md:gap-0 w-full">
-        <div className="flex flex-col gap-0 max-w-max mx-auto md:mx-0">
+    <div className=" m-4 md:m-8 md:mx-12  md:border-2 border-dashed p-2 px-8 rounded-2xl">
+      <div className="flex flex-col-reverse md:flex-row md:justify-between md:items-center md:gap-0 w-full">
+        <div className="flex flex-col gap-0 max-w-max mx-auto md:mx-0  p-3 md:p-0 rounded-xl to-100%">
           <h1 className="text-3xl font-semibold relative text-center mb-4 pt-2">
             Shaharyar
             <motion.span
@@ -39,7 +39,7 @@ export const Header = () => {
             ]}
           />
         </div>
-        <div className="flex justify-between items-center gap-12 ">
+        <div className="flex justify-center md:justify-between pb-3 md:pb-0  flex-row-reverse md:flex-row  items-center gap-12 ">
           <Button variant={"secondary"}>
             <a
               href="https://drive.google.com/uc?export=download&id=1kMtpQCMM6QU8zVmeKd1R3T_0jESjHBMW"
