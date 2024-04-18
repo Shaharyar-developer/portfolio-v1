@@ -1,4 +1,5 @@
 import { Header } from "@/components/header";
+import { Projects } from "@/components/projects";
 import { Skills } from "@/components/skills";
 import { TechStack } from "@/components/tech-stack";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
@@ -21,6 +22,7 @@ export default function Home() {
       </div>
       <div className="mt-20 flex flex-col md:flex-row justify-center gap-4 md:gap-24">
         <TechStack />
+        <Projects />
         <Skills />
       </div>
       <p className="text-center mt-4 pb-4 text-xs text-zinc-700">

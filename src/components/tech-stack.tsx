@@ -74,7 +74,7 @@ export const TechStack = () => {
       >
         {gridItems.map((_, index) => (
           <motion.div
-            className={`w-6 z-1 aspect-square bg-accent  ${
+            className={`w-6 z-1 aspect-square bg-accent cursor-default ${
               activeIndexes.includes(index)
                 ? activeColors[activeIndexes.indexOf(index)]
                 : ""

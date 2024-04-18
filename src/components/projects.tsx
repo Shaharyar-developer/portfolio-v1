@@ -2,26 +2,51 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-export const Skills = () => {
+type projectsType = {
+  name: string;
+  url: string;
+};
+
+export const Projects = () => {
   const [activeIndexes, setActiveIndexes] = useState<number[]>([]);
   const [hoveredIndex, setHovered] = useState<number | null>(null);
   const [tappedIndex, setTappedIndex] = useState<number | null>(null);
   const [activeColors, setActiveColors] = useState<string[]>([]);
-  const [skillsNames, setskillsNames] = useState<string[]>([]);
-  const skills = [
-    "Git",
-    "GitHub",
-    "Linux",
-    "Docker",
-    "Kubernetes",
-    "AWS",
-    "ORMs",
-    "REST",
-  ];
+  const [projectsNames, setprojectsNames] = useState<projectsType[]>([]);
+  const projects = [
+    {
+      name: "Portfolio",
+      url: "/",
+    },
+    {
+      name: "Event Promotion",
+      url: "https://event.shaharyar-dev.engineer/",
+    },
+    {
+      name: "Event Promotion",
+      url: "https://ptmfest2024.vercel.app/",
+    },
+    {
+      name: "SaaS Waitlist",
+      url: "https://acuman.live",
+    },
+    {
+      name: "Admin Panel",
+      url: "https://network.shaharyar-dev.engineer/",
+    },
+    {
+      name: "Bored",
+      url: "https://bored.acuman.live/",
+    },
+    {
+      name: "Web Dev Firm",
+      url: "https://eddtech.org/",
+    },
+  ] satisfies projectsType[];
   const gridItems = Array(25).fill(null);
   const generateRandomNumbers = () => {
     const randomNumbers = new Set<number>();
-    while (randomNumbers.size < skills.length) {
+    while (randomNumbers.size < projects.length) {
       const randomNumber = Math.floor(Math.random() * 25) + 1;
       randomNumbers.add(randomNumber);
     }
@@ -36,7 +61,7 @@ export const Skills = () => {
     return array;
   };
 
-  const shuffleskillsNames = (array: string[]) => {
+  const shuffleprojectsNames = (array: projectsType[]) => {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
@@ -55,13 +80,13 @@ export const Skills = () => {
 
     setActiveIndexes(newActiveIndexes);
     setActiveColors(newActiveIndexes.map((_, i) => colors[i % colors.length]));
-    setskillsNames(shuffleskillsNames(skills));
+    setprojectsNames(shuffleprojectsNames(projects));
   }, []);
 
   return (
     <div>
       <h2 className=" text-center text-xl font-semibold text-clip bg-clip-text text-transparent bg-gradient-to-br from-zinc-500 to-white">
-        Skills
+        Projects
       </h2>
 
       <motion.div
@@ -70,7 +95,7 @@ export const Skills = () => {
       >
         {gridItems.map((_, index) => (
           <motion.div
-            className={`w-6 z-1 aspect-square bg-accent cursor-default  ${
+            className={`w-6 z-1 aspect-square  bg-accent cursor-pointer ${
               activeIndexes.includes(index)
                 ? activeColors[activeIndexes.indexOf(index)]
                 : ""
@@ -104,10 +129,10 @@ export const Skills = () => {
                   : 1,
               borderRadius:
                 tappedIndex === index
-                  ? 20
+                  ? 70
                   : activeIndexes.includes(index)
-                  ? 3
-                  : 100,
+                  ? [9]
+                  : [-1],
               height: tappedIndex === index ? 50 : 24,
               width: tappedIndex === index ? 150 : 24,
               opacity: 1,
@@ -129,14 +154,16 @@ export const Skills = () => {
           >
             {((hoveredIndex === index && activeIndexes.includes(index)) ||
               tappedIndex === index) && (
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.2 }}
-                className="text-white flex justify-center items-center h-full"
-              >
-                {skillsNames[activeIndexes.indexOf(index)]}
-              </motion.p>
+              <a href={projectsNames[activeIndexes.indexOf(index)].url}>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-white flex justify-center items-center h-full whitespace-nowrap"
+                >
+                  {projectsNames[activeIndexes.indexOf(index)].name}
+                </motion.p>
+              </a>
             )}
           </motion.div>
         ))}
