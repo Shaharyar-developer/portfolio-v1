@@ -42,7 +42,7 @@ export const Header = () => {
         <div className="flex justify-center md:justify-between pb-3 md:pb-0  flex-row-reverse md:flex-row  items-center gap-12 ">
           <Button variant={"secondary"}>
             <a
-              href="https://drive.google.com/uc?export=download&id=1kMtpQCMM6QU8zVmeKd1R3T_0jESjHBMW"
+              href="https://drive.google.com/uc?export=download&id=1vd0z_leTziPesiJR7TPluD8lS-YmlQn8"
               target="_blank"
             >
               Resume

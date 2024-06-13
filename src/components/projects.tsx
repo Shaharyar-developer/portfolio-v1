@@ -35,10 +35,6 @@ export const Projects = () => {
       url: "https://network.shaharyar-dev.engineer/",
     },
     {
-      name: "Bored",
-      url: "https://bored.acuman.live/",
-    },
-    {
       name: "Web Dev Firm",
       url: "https://eddtech.org/",
     },
