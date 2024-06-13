@@ -3,7 +3,6 @@ import { Projects } from "@/components/projects";
 import { Skills } from "@/components/skills";
 import { TechStack } from "@/components/tech-stack";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
-import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 
 export default function Home() {
   return (
@@ -20,12 +19,16 @@ export default function Home() {
           className="md:max-w-[45%] max-w-[95%] mx-auto font-medium "
         />
       </div>
-      <div className="mt-20 flex flex-col md:flex-row justify-center gap-4 md:gap-24">
+
+      <div className="mt-20 flex flex-col md:flex-row justify-center gap-4 md:gap-24 relative pb-2 md:pb-0">
+        <p className="absolute text-center md:hidden left-1/2 -translate-x-1/2 -top-5 text-xs text-zinc-700 whitespace-nowrap">
+          TIP: Hover OR Tap Any Colored Dot To Make It Bigger
+        </p>
         <TechStack />
         <Projects />
         <Skills />
       </div>
-      <p className="text-center mt-4 pb-4 text-xs text-zinc-700">
+      <p className="text-center hidden md:block mt-4 pb-4 text-xs text-zinc-700">
         TIP: Hover OR Tap Any Colored Dot To Make It Bigger
       </p>
     </main>
